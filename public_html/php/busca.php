@@ -1,4 +1,4 @@
-<?php require_once(__DIR__ . '/connections/conexion.php'); ?>
+<?php require_once(__DIR__ . '/../connections/conexion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -49,14 +49,14 @@ $totalRows_busqueda = mysql_num_rows($busqueda);
 <meta name="keywords" content="escribi lo que quieras sobre cualquier tema, escribi, lo, que, quieras" />
 <meta name="description" content="escribi lo que quieras" />
 <title>Escribi lo que quieras</title>
-<link href="estilo.css" rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" href="favicon.ico"/>
+<link href="../style/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="../img/favicon.ico"/>
 </head>
 <body>
 
 
 <div id="laquetiene">
-              <div id="logo"><a href="index.php" target="_self"><img src="escribi.png" alt="escribi lo que quieras" class="titulares" /></a>
+              <div id="logo"><a href="index.php" target="_self"><img src="../img/escribi.png" alt="escribi lo que quieras" class="titulares" /></a>
   </div>
 </div>
 
@@ -76,7 +76,7 @@ $totalRows_busqueda = mysql_num_rows($busqueda);
  			<span class="letrasnormales">   		
 				<a href="temas.php?escribieron=<?php echo $row_busqueda['titulo']; ?>"><?php echo $row_busqueda['titulo']; ?></a>
 			</span>
-        		<span class="masletras"><img src="<?php echo $row_busqueda['categoria']; ?>.png" width="20px" height="20px" alt="<?php echo $row_busqueda['categoria']; ?>" title="Este post contiene <?php echo $row_busqueda['categoria']; ?>"/>
+        		<span class="masletras"><img src="../img/<?php echo $row_busqueda['categoria']; ?>.png" width="20px" height="20px" alt="<?php echo $row_busqueda['categoria']; ?>" title="Este post contiene <?php echo $row_busqueda['categoria']; ?>"/>
 			</span>
 			<p class="letripostit">
 			<?php
@@ -115,7 +115,7 @@ Sitio alojado en <a href="http://www.000webhost.com/147501.html" target="_blank"
         alt="¡CSS Válido!" class="titulares" style="border:0;width:57px;height:20px" />
 </a>
 
-  <a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
+  <a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="../img/sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
 <br />
 </div>
 <script type="text/javascript">

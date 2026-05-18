@@ -219,3 +219,4 @@ __marimo__/
 
 # PHP DB credentials (escribiloquequieras)
 public_html/connections/conexion_remota.php
+public_html/php/recaptcha_config.php

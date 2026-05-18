@@ -1,0 +1,7 @@
+<?php
+// Copiar a recaptcha_config.php (en .gitignore) con las claves de reCAPTCHA v2.
+// Crear en: https://www.google.com/recaptcha/admin — tipo "Casilla de verificación".
+// Si existe este archivo, se usa en local y en producción (mismas claves que en Google Admin).
+// Si no existe y estás en local sin config, el código usa claves de prueba de Google.
+$recaptcha_site_key   = 'xxx';
+$recaptcha_secret_key = 'xxx';

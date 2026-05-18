@@ -100,7 +100,7 @@ a:active {
 	min-height:500px;
 	width: 98%;
 	padding:10px;
-	/*background-image:url(trans.png);
+	/*background-image:url(../img/trans.png);
 	background-repeat:repeat;
 	background-position:top;*/
 	background-color:#222;
@@ -212,7 +212,7 @@ a:active {
 	z-index: auto;
 	float: left;
 	padding:4px;
-	background-image: url(trans.png):
+	background-image: url(../img/trans.png):
 	background-repeat: repeat;
 	border-top:2px #6f3 solid;
 	background-color:#000;
@@ -228,7 +228,7 @@ a:active {
 	z-index: auto;
 	float: left;
 	padding:4px;
-	background-image: url(trans.png):
+	background-image: url(../img/trans.png):
 	background-repeat: repeat;
 	border-top:2px #6f3 solid;
 	background-color:#000;
@@ -263,7 +263,7 @@ a:active {
 	margin-top:5px;
 	padding: 20px;
 	background-color:#000;
-/*	background-image: url(trans.png);*/
+/*	background-image: url(../img/trans.png);*/
 	background-repeat: repeat;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
@@ -339,7 +339,7 @@ a:active {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-	/*background-image: url(trans.png);
+	/*background-image: url(../img/trans.png);
 	background-repeat: repeat;*/
 	background-color:#333;	
 	padding:5px;
@@ -360,7 +360,7 @@ a:active {
 	height: 20px;
 	z-index: auto;
 	margin: 0 auto;
-	background-image: url(trans.png);
+	background-image: url(../img/trans.png);
 	background-repeat: repeat;
 }
 #losposdos {
@@ -372,7 +372,7 @@ a:active {
 	height: 20px;
 	z-index: auto;
 	margin: 0 auto;
-	background-image: url(trans.png);
+	background-image: url(../img/trans.png);
 	background-repeat: repeat;
 }
 #condiciones {
@@ -385,7 +385,7 @@ a:active {
 	height: auto;
 	z-index: auto;
 	margin: 0 auto;
-	background-image: url(trans.png);
+	background-image: url(../img/trans.png);
 	background-repeat: repeat;
 	padding: 20px;
 	-moz-border-radius:20px;
@@ -416,7 +416,7 @@ a:active {
 	z-index: auto;
 	margin: 0 auto;
 	padding: 20px;
-	/*background-image: url(trans.png);
+	/*background-image: url(../img/trans.png);
 	background-repeat: repeat;*/
 	background-color:#111;
 	-moz-border-radius:20px;
@@ -433,7 +433,7 @@ a:active {
 	height: 600px;
 	z-index: auto;
 	margin: 0 auto;
-	background-image: url(trans.png);
+	background-image: url(../img/trans.png);
 	background-repeat: repeat;
 	padding: 20px;
 	-moz-border-radius:20px;
@@ -579,7 +579,7 @@ a:active {
 	height: auto;
 	z-index: auto;
 	margin: 0 auto;
-	background-image: url(trans.png);
+	background-image: url(../img/trans.png);
 	background-repeat: repeat;
 	border: thin solid #66FF33;
 	-moz-border-radius: 10px;

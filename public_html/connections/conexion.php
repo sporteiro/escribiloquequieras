@@ -42,6 +42,8 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
     $conexion = mysqli_connect($host, $user, $pass, $db);
+    // Misma collation que tablas antiguas (latin1); evita "Illegal mix of collations" con PHP 8 / utf8mb4 por defecto.
+    mysqli_set_charset($conexion, 'latin1');
 } catch (mysqli_sql_exception $e) {
     if ($es_local) {
         die('Error DB local: ' . $e->getMessage());

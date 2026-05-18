@@ -66,6 +66,12 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "fcomentario")) {
 		$row_todo = mysql_fetch_assoc($todo);
 		$totalRows_todo = mysql_num_rows($todo);
 
+if ($totalRows_todo < 1 || !is_array($row_todo)) {
+    mysql_free_result($todo);
+    header('Location: index.php');
+    exit;
+}
+
 $colname_DetailRS1 = "-1";
 if (isset($row_todo['CodPost'])) {
   $colname_DetailRS1 = $row_todo['CodPost'];
@@ -81,7 +87,7 @@ if (isset($_GET['escribieron'])) {
   $colname_recormasvistos = $_GET['escribieron'];
 }
 mysql_select_db($database_conexion, $conexion);
-$query_recormasvistos =  sprintf("SELECT * FROM Post WHERE titulo = %s", GetSQLValueString($colname_recormasvistos, "int"));
+$query_recormasvistos =  sprintf("SELECT * FROM Post WHERE titulo = %s", GetSQLValueString($colname_recormasvistos, "text"));
 $recormasvistos = mysql_query($query_recormasvistos, $conexion) or die(mysql_error());
 $row_recormasvistos = mysql_fetch_assoc($recormasvistos);
 $totalRows_recormasvistos = mysql_num_rows($recormasvistos);
@@ -179,7 +185,9 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
                     NO HAY <?php } // Mostra esto otro ?>
                        COMENTARIOS:</div>
     <br />
-      <?php do { ?>
+      <?php
+	if ($totalRows_DetailRS1 > 0 && is_array($row_DetailRS1)) {
+	 do { ?>
     <div id="repetir">
       <div id="elnombrecom"><?php echo $row_DetailRS1['nombre']; ?><span class="letritas"> <?php if ($row_DetailRS1['nombre']!="") { // Si esta esto ?>
                               dijo: <?php } // Mostralo  ?></span></div> 
@@ -190,7 +198,9 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
                       <a href="#principio">Volv&eacute; al principio</a>        <?php } // Mostra esto otro ?></div>
       <br />
     </div>
-    <?php } while ($row_DetailRS1 = mysql_fetch_assoc($DetailRS1)); ?>
+    <?php } while ($row_DetailRS1 = mysql_fetch_assoc($DetailRS1));
+	}
+	?>
     
     <br />
     <div id="penultima"> <span id="sprytextfield1">
@@ -217,7 +227,7 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
       </div>
         <p>
           <label>
-          <input name="listo" type="submit" class="botones" id="listo" tabindex="4" value="Publicá tu comentario" />
+          <input name="listo" type="submit" class="botones" id="listo" tabindex="4" value="Public tu comentario" />
           </label>
         </p>
           <p>
@@ -229,11 +239,15 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
           </div>
              <div class="postitparatemas">
            <p class="titulares">Pueden interesarte estos posts</p>
-<?php do { ?>
+<?php
+if ($totalRows_Recordlomasvisto > 0 && is_array($row_Recordlomasvisto)) {
+do { ?>
   <span class="letrasnormales">
     <a href="temas.php?escribieron=<?php echo $row_Recordlomasvisto['titulo']; ?>"><?php echo $row_Recordlomasvisto['titulo']; ?></a></span> <span class="masletras"><img src="../img/<?php echo $row_Recordlomasvisto['categoria']; ?>.gif" width="25px" height="25px" alt="<?php echo $row_Recordlomasvisto['categoria']; ?>" title="Este post contiene <?php echo $row_Recordlomasvisto['categoria']; ?>"/></span>
   <br />
-  <?php } while ($row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto)); ?><br />
+  <?php } while ($row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto));
+}
+?><br />
   </div><br /></div>
               </form>
   <br />
@@ -246,7 +260,7 @@ DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.
 	Sitio alojado en <a href="http://www.000webhost.com/147501.html" target="_blank">000webhost</a>
 	 <p>
 		 <a href="http://jigsaw.w3.org/css-validator/check/referer">
-    		<img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" class="titulares" style="border:0;width:57px;height:20px" />
+    		<img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Vlido!" class="titulares" style="border:0;width:57px;height:20px" />
 		</a>
 		<a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="../img/sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a>
 	</p>

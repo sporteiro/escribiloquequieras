@@ -1,4 +1,4 @@
-<?php require_once('Connections/tema.php'); ?>
+<?php require_once(__DIR__ . '/connections/conexion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -60,8 +60,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
 					   GetSQLValueString($_POST['catagoria'], "text"),
                        GetSQLValueString($_POST['vistoid'], "int"));
 
-  mysql_select_db($database_tema, $tema);
-  $Result1 = mysql_query($insertSQL, $tema) or die(mysql_error());
+  mysql_select_db($database_conexion, $conexion);
+  $Result1 = mysql_query($insertSQL, $conexion) or die(mysql_error());
   
  
    }
@@ -79,10 +79,10 @@ if (isset($_GET['elegirCategoria']))	{
 }
 
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_todo = "SELECT * FROM Post ".$solo_categoria." ORDER BY CodPost DESC";
 $query_limit_todo = sprintf("%s LIMIT %d, %d", $query_todo, $startRow_todo, $maxRows_todo);
-$todo = mysql_query($query_limit_todo, $tema) or die(mysql_error());
+$todo = mysql_query($query_limit_todo, $conexion) or die(mysql_error());
 $row_todo = mysql_fetch_assoc($todo);
 
 if (isset($_GET['totalRows_todo'])) {
@@ -100,10 +100,10 @@ if (isset($_GET['pageNum_Recordlomasvisto'])) {
 }
 $startRow_Recordlomasvisto = $pageNum_Recordlomasvisto * $maxRows_Recordlomasvisto;
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_Recordlomasvisto = "SELECT * FROM Post WHERE CodPost > (SELECT MAX( CodPost ) -20 FROM Post) ORDER BY visitas DESC";
 $query_limit_Recordlomasvisto = sprintf("%s LIMIT %d, %d", $query_Recordlomasvisto, $startRow_Recordlomasvisto, $maxRows_Recordlomasvisto);
-$Recordlomasvisto = mysql_query($query_limit_Recordlomasvisto, $tema) or die(mysql_error());
+$Recordlomasvisto = mysql_query($query_limit_Recordlomasvisto, $conexion) or die(mysql_error());
 $row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto);
 
 if (isset($_GET['totalRows_Recordlomasvisto'])) {
@@ -114,9 +114,9 @@ if (isset($_GET['totalRows_Recordlomasvisto'])) {
 }
 $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordlomasvisto)-1;
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_Recordinsertarvisto = "SELECT * FROM Post ORDER BY CodPost DESC";
-$Recordinsertarvisto = mysql_query($query_Recordinsertarvisto, $tema) or die(mysql_error());
+$Recordinsertarvisto = mysql_query($query_Recordinsertarvisto, $conexion) or die(mysql_error());
 $row_Recordinsertarvisto = mysql_fetch_assoc($Recordinsertarvisto);
 $totalRows_Recordinsertarvisto = mysql_num_rows($Recordinsertarvisto);
 
@@ -143,9 +143,9 @@ $queryString_todo = sprintf("totalRows_todo=%d%s", $totalRows_todo, $queryString
     if($ip == $ips_baneadas[$i]) { die("ACCESO DENEGADO . $ip"); } } ?>  
     
 <?//COMENTARIOS
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_comentarios = "SELECT C.*, P.titulo FROM Comentarios C JOIN Post P ON P.CodPost=C.CodPost ORDER BY C.CodCom DESC LIMIT 0 , 7";
-$comentarios = mysql_query($query_comentarios, $tema) or die(mysql_error());
+$comentarios = mysql_query($query_comentarios, $conexion) or die(mysql_error());
 $row_comentarios = mysql_fetch_assoc($comentarios);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

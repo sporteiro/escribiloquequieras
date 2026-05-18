@@ -1,4 +1,4 @@
-<?php require_once('Connections/tema.php');
+<?php require_once(__DIR__ . '/connections/conexion.php');
 
 	if (!function_exists("GetSQLValueString")) {
 			function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 	{
@@ -56,8 +56,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
                        GetSQLValueString($_POST['ocuide'], "int")
 					   );
 
-  mysql_select_db($database_tema, $tema);
-  $Result1 = mysql_query($insertSQL, $tema) or die(mysql_error());
+  mysql_select_db($database_conexion, $conexion);
+  $Result1 = mysql_query($insertSQL, $conexion) or die(mysql_error());
 
   $insertGoTo = "temas.php";
   if (isset($_SERVER['QUERY_STRING'])) {
@@ -71,10 +71,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
 			if (isset($_GET['escribieron'])) {
   			$colname_todo = $_GET['escribieron'];
 		}
-	mysql_select_db($database_tema, $tema);
+	mysql_select_db($database_conexion, $conexion);
 		$query_todo = sprintf("SELECT * FROM Post WHERE titulo = %s",
 		GetSQLValueString($colname_todo, "text"));
-		$todo = mysql_query($query_todo, $tema) or die(mysql_error());
+		$todo = mysql_query($query_todo, $conexion) or die(mysql_error());
 		$row_todo = mysql_fetch_assoc($todo);
 		$totalRows_todo = mysql_num_rows($todo);
 
@@ -82,9 +82,9 @@ $colname_DetailRS1 = "-1";
 if (isset($row_todo['CodPost'])) {
   $colname_DetailRS1 = $row_todo['CodPost'];
 }
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_DetailRS1 = sprintf("SELECT * FROM Comentarios WHERE CodPost = %s ORDER BY CodCom DESC", GetSQLValueString($colname_DetailRS1, "int"));
-$DetailRS1 = mysql_query($query_DetailRS1, $tema) or die(mysql_error());
+$DetailRS1 = mysql_query($query_DetailRS1, $conexion) or die(mysql_error());
 $row_DetailRS1 = mysql_fetch_assoc($DetailRS1);
 $totalRows_DetailRS1 = mysql_num_rows($DetailRS1);
 
@@ -92,9 +92,9 @@ $colname_recormasvistos = "-1";
 if (isset($_GET['escribieron'])) {
   $colname_recormasvistos = $_GET['escribieron'];
 }
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_recormasvistos =  sprintf("SELECT * FROM Post WHERE titulo = %s", GetSQLValueString($colname_recormasvistos, "int"));
-$recormasvistos = mysql_query($query_recormasvistos, $tema) or die(mysql_error());
+$recormasvistos = mysql_query($query_recormasvistos, $conexion) or die(mysql_error());
 $row_recormasvistos = mysql_fetch_assoc($recormasvistos);
 $totalRows_recormasvistos = mysql_num_rows($recormasvistos);
 
@@ -105,10 +105,10 @@ if (isset($_GET['pageNum_Recordlomasvisto'])) {
 }
 $startRow_Recordlomasvisto = $pageNum_Recordlomasvisto * $maxRows_Recordlomasvisto;
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_Recordlomasvisto = "SELECT * FROM Post WHERE titulo LIKE '%".substr( mysql_real_escape_string($row_todo['titulo']),0,3)."%' AND titulo!='".mysql_real_escape_string($row_todo['titulo'])."' ORDER BY visitas DESC";
 $query_limit_Recordlomasvisto = sprintf("%s LIMIT %d, %d", $query_Recordlomasvisto, $startRow_Recordlomasvisto, $maxRows_Recordlomasvisto);
-$Recordlomasvisto = mysql_query($query_limit_Recordlomasvisto, $tema) or die(mysql_error());
+$Recordlomasvisto = mysql_query($query_limit_Recordlomasvisto, $conexion) or die(mysql_error());
 $row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto);
 
 if (isset($_GET['totalRows_Recordlomasvisto'])) {
@@ -119,9 +119,9 @@ if (isset($_GET['totalRows_Recordlomasvisto'])) {
 }
 $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordlomasvisto)-1;
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_Recordlomasvisto2 = "SELECT * FROM Post ORDER BY visitas DESC LIMIT 0 , 5";
-$Recordlomasvisto2 = mysql_query($query_Recordlomasvisto2, $tema) or die(mysql_error());
+$Recordlomasvisto2 = mysql_query($query_Recordlomasvisto2, $conexion) or die(mysql_error());
 $row_Recordlomasvisto2 = mysql_fetch_assoc($Recordlomasvisto2);
 
 ?>
@@ -335,8 +335,8 @@ DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.
 <?php
 			$copos=$row_todo['CodPost'];
   			$updateSQL = "UPDATE Post SET visitas=visitas+1 WHERE CodPost = ".$copos." ";
-			mysql_select_db($database_tema, $tema);
-  			$Result1 = mysql_query($updateSQL, $tema) or die(mysql_error());
+			mysql_select_db($database_conexion, $conexion);
+  			$Result1 = mysql_query($updateSQL, $conexion) or die(mysql_error());
 ?>
 <script type="text/javascript">
    var infolink_pid = 87186;

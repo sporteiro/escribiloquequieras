@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="verify-v1" content="jLzDZBjVtNWtOfn2f2yKtMrlDZLI3BMhjT5OwjtINv4=" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="escribi lo que quieras sobre cualquier tema, escribi, lo, que, quieras" />
+<meta name="description" content="escribi lo que quieras" />
+<title>Su mensaje ha sido enviado</title>
+<link href="estilo.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+
+
+<div id="laquetiene">
+              <div id="logo"><a href="index.php" target="_self"><img src="escribi.png" alt="escribi lo que quieras" width="300px" height="94px" class="titulares" /></a>
+  </div>
+</div>
+
+<div id="cnugida">
+     <div id="adinugui"></div>
+  <div id="glugle"></div>
+  <div id="busquedaresulta">
+    <div class="titulares">
+      <p>&nbsp;</p>
+      <p>SU MENSAJE HA SIDO ENVIADO CON EXITO</p>
+      <p>NOS PONDREMOS EN CONTACTO CON USTED SI ES NECESARIO</p>
+         <p>GRACIAS POR SU COMUNICACION CON NOSOTROS</p>
+          <p class="letritas">SI NUESTRO MENSAJE NO LE LLEGA, REVISE LA CASILLA DE SPAM DE SU SERVIDOR DE CORREO ELECTRONICO</p>
+      <p>&nbsp;</p>
+      </div>
+    <div id="resultados">
+      <p> <a href="index.php">Volver a la pagina principal</a></p>
+    </div>
+<div id="nohay"></div>
+<div id="parabanner"></div>
+  </div>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><br />
+  </p>
+</div>
+<br />
+<div style="clear:both;"></div>
+<div id="ultimo">
+TODOS LOS DERECHOS RESERVADOS. Escribiloquequieras no es responsable del contenido.<br />
+DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.ar" target="_blank">SEBASTIAN PORTEIRO</a>.<br />
+Sitio alojado en <a href="http://www.000webhost.com/147501.html" target="_blank">000webhost</a>
+ <p>
+  <a href="http://validator.w3.org/check?uri=referer">
+    <img
+        src="http://www.w3.org/Icons/valid-xhtml10-blue"
+        alt="Valid XHTML 1.0 Transitional" class="titulares" style="border:0;width:57px;height:20px" />
+        
+</a>
+  <a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
+<br />
+</div>
+</body>
+</html>

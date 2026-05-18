@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+/* ---------------------------------------------------------
+   MEJORAS VISUALES MODERNAS (sin romper layout)
+--------------------------------------------------------- */
+
+/* Box-sizing solo para elementos que lo necesiten */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Fondo y tipografía general */
+body {
+    background-color: #1e1e1e;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Geneva, Arial, sans-serif;
+}
+
+/* Contenedor principal con sombra suave y bordes redondeados */
+#cnugida {
+    background-color: #1a1a1a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Tarjetas, comentarios, postits: bordes redondeados y sombras */
+.coment,
+.adentropostit,
+.cadaPostit,
+#asuntitos,
+#condiciones,
+#contactos {
+    background-color: #252525;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.coment:hover,
+.adentropostit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Botones y campos de formulario modernos */
+.botones,
+.imputis,
+button,
+input[type="submit"],
+input[type="reset"],
+select.imputis {
+    background-color: #0a2a0a;
+    border: 1px solid #3c8c3c;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.botones:hover,
+input[type="submit"]:hover {
+    background-color: #2c6e2c;
+    border-color: #8bc34a;
+    transform: scale(1.02);
+}
+
+.imputis {
+    background-color: #111;
+}
+
+/* Tipografía responsiva */
+.titulares {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+}
+
+/* ---------------------------------------------------------
+   CORRECCIÓN DEL BUSCADOR (Index.php)
+   El buscador está dentro de #logo, con un div flotando a la derecha.
+   Respetamos el float: right pero mejoramos la alineación.
+--------------------------------------------------------- */
+/* En escritorio: el div que contiene la búsqueda debe flotar a la derecha */
+#logo > div {
+    float: right !important;
+    margin-right: 0;
+    text-align: right;
+}
+
+/* Forzamos que el formulario use inline-flex para que input y botón queden juntos */
+#busqueda {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Ajustamos el ancho del input para que no sea enorme */
+#busqueda .imputis {
+    width: 220px;
+    margin: 0;
+}
+
+#busqueda .botones {
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------
+   CORRECCIÓN DEL SOLAPAMIENTO EN #nombcribio (temas.php)
+   Las letras se veían cortadas porque el padding y line-height no eran adecuados.
+--------------------------------------------------------- */
+#nombcribio {
+    padding: 8px 16px !important;
+    line-height: 1.4 !important;
+    overflow: visible !important;
+    height: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px;
+}
+
+#nombcribio .letritas {
+    font-size: 0.8rem;
+    background: none;
+    padding: 0;
+    color: #aaa;
+}
+
+/* ---------------------------------------------------------
+   CORRECCIÓN DEL BLOQUE "Pueden interesarte estos posts"
+   Se desbordaba en móvil, ahora se adapta.
+--------------------------------------------------------- */
+.postitparatemas {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+    padding: 15px !important;
+    box-sizing: border-box;
+}
+
+.postitparatemas .cadaPostit {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* ---------------------------------------------------------
+   MEDIA QUERY: SOLO PARA MÓVILES (max-width: 768px)
+   Aquí apilamos los flotantes y hacemos que todo sea fluido,
+   pero SIN TOCAR el layout de escritorio.
+--------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Apilar los flotantes */
+    #logo {
+        text-align: center;
+    }
+    
+    #logo > div {
+        float: none !important;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    #busqueda {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #busqueda .imputis,
+    #busqueda .botones {
+        width: 100%;
+    }
+    
+    /* Hacer que los elementos con ancho fijo se adapten */
+    #inicial, #termini, #nombcribio, #elnombrecom,
+    #lahora, #conti, #flechas, #postit, #forpost, #banerecha {
+        float: none !important;
+        width: 100% !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Para que los comentarios no se desborden */
+    .coment, .repetir {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    /* El bloque "Pueden interesarte" ocupa todo el ancho */
+    .postitparatemas {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    /* Ajustar imágenes dentro del contenido */
+    img, iframe, video {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Reducir padding general */
+    #cnugida {
+        padding: 12px;
+    }
+    
+    .coment, .adentropostit {
+        padding: 12px;
+    }
+}
+
+/* ---------------------------------------------------------
+   DETALLES ADICIONALES (imágenes fluidas, scroll suave, footer)
+--------------------------------------------------------- */
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#ultimo {
+    background-color: #0a1f05;
+    border-top: 2px solid #6f3;
+    border-radius: 16px 16px 0 0;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+a {
+    transition: color 0.2s;
+}

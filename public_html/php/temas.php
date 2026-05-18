@@ -67,6 +67,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
 		$row_todo = mysql_fetch_assoc($todo);
 		$totalRows_todo = mysql_num_rows($todo);
 
+if ($totalRows_todo < 1 || !is_array($row_todo)) {
+    mysql_free_result($todo);
+    header('Location: index.php');
+    exit;
+}
+
 $colname_DetailRS1 = "-1";
 if (isset($row_todo['CodPost'])) {
   $colname_DetailRS1 = $row_todo['CodPost'];
@@ -82,7 +88,7 @@ if (isset($_GET['escribieron'])) {
   $colname_recormasvistos = $_GET['escribieron'];
 }
 mysql_select_db($database_conexion, $conexion);
-$query_recormasvistos =  sprintf("SELECT * FROM Post WHERE titulo = %s", GetSQLValueString($colname_recormasvistos, "int"));
+$query_recormasvistos =  sprintf("SELECT * FROM Post WHERE titulo = %s", GetSQLValueString($colname_recormasvistos, "text"));
 $recormasvistos = mysql_query($query_recormasvistos, $conexion) or die(mysql_error());
 $row_recormasvistos = mysql_fetch_assoc($recormasvistos);
 $totalRows_recormasvistos = mysql_num_rows($recormasvistos);
@@ -195,23 +201,24 @@ $row_Recordlomasvisto2 = mysql_fetch_assoc($Recordlomasvisto2);
                        COMENTARIOS:</div>
     <br />
       <?php
-	
-	$numCom=$totalRows_DetailRS1+1;
+	$numCom = $totalRows_DetailRS1 + 1;
+	if ($totalRows_DetailRS1 > 0 && is_array($row_DetailRS1)) {
 	 do { ?>
-    <div id="<?=$row_DetailRS1['CodCom']?>" class="repetir">
-      <div id="elnombrecom"><?php if ($row_DetailRS1['nombre']!="") { ?><span class="numCom">#<?=$numCom-1?></span><?}?> <?php echo $row_DetailRS1['nombre']; ?>
+    <div id="<?php echo (int) $row_DetailRS1['CodCom']; ?>" class="repetir">
+      <div id="elnombrecom"><?php if ($row_DetailRS1['nombre']!="") { ?><span class="numCom">#<?php echo $numCom - 1; ?></span><?php } ?> <?php echo $row_DetailRS1['nombre']; ?>
 	<span class="letritas"> <?php if ($row_DetailRS1['nombre']!="") { // Si esta esto ?>
                               dijo: <?php } // Mostralo  ?></span></div> 
       <div class="letritas" id="lahora"><?php if ($row_DetailRS1['nombre']!="") { // Si esta esto ?>
         <?php echo $row_DetailRS1['hora']; ?> <?php } // Mostralo  ?></div>
         <br />
-      <div id="<?=$numCom-1?>" class="coment"><?php echo nl2br($row_DetailRS1['comentario']); ?><?php if ($row_DetailRS1['comentario']=="") { // Si no esta esto ?>
+      <div id="<?php echo (int) $numCom - 1; ?>" class="coment"><?php echo nl2br($row_DetailRS1['comentario']); ?><?php if ($row_DetailRS1['comentario']=="") { // Si no esta esto ?>
                       <a href="#principio">Volv&eacute; al principio</a>        <?php } // Mostra esto otro ?></div>
       <br />
     </div>
-    <?$numCom=$numCom-1;?>
-    <?php } while ($row_DetailRS1 = mysql_fetch_assoc($DetailRS1)); 
+    <?php $numCom = $numCom - 1; ?>
+    <?php } while ($row_DetailRS1 = mysql_fetch_assoc($DetailRS1));
 	$numCom=$numCom-1;
+	}
 	?>
     
     <br />
@@ -253,7 +260,7 @@ $row_Recordlomasvisto2 = mysql_fetch_assoc($Recordlomasvisto2);
            <span class="titulares">Pueden interesarte estos posts</span><br />
            <hr />
 <?php 
-if ($totalRows_Recordlomasvisto>0)	{
+if ($totalRows_Recordlomasvisto > 0 && is_array($row_Recordlomasvisto))	{
 do { ?>
 <div class="cadaPostit">
   <span class="letrasnormales">
@@ -263,13 +270,15 @@ do { ?>
   <?php } while ($row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto)); 
 } 
 else {
+	if (is_array($row_Recordlomasvisto2)) {
 	do { ?>
 <div class="cadaPostit">
   <span class="letrasnormales">
     <a href="temas.php?escribieron=<?php echo $row_Recordlomasvisto2['titulo']; ?>"><?php echo $row_Recordlomasvisto2['titulo']; ?></a></span> <span class="masletras"><img src="../img/<?php echo $row_Recordlomasvisto2['categoria']; ?>.png" width="25px" height="25px" alt="<?php echo $row_Recordlomasvisto2['categoria']; ?>" title="Este post contiene <?php echo $row_Recordlomasvisto2['categoria']; ?>"/></span>
   <br />
 </div>
-  <?php } while ($row_Recordlomasvisto2 = mysql_fetch_assoc($Recordlomasvisto2)); 
+  <?php } while ($row_Recordlomasvisto2 = mysql_fetch_assoc($Recordlomasvisto2));
+	}
 
 
 }

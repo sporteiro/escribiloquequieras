@@ -1,4 +1,4 @@
-<?php require_once('Connections/tema.php'); ?>
+<?php require_once(__DIR__ . '/connections/conexion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -35,9 +35,9 @@ $colname_busqueda = "-1";
 if (isset($_POST['buscar'])) {
   $colname_busqueda = $_POST['buscar'];
 }
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_busqueda = sprintf("SELECT * FROM Post WHERE titulo LIKE %s ORDER BY visitas DESC, hora DESC, titulo DESC", GetSQLValueString("%" . $colname_busqueda . "%", "text"));
-$busqueda = mysql_query($query_busqueda, $tema) or die(mysql_error());
+$busqueda = mysql_query($query_busqueda, $conexion) or die(mysql_error());
 $row_busqueda = mysql_fetch_assoc($busqueda);
 $totalRows_busqueda = mysql_num_rows($busqueda);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# PHP DB credentials (escribiloquequieras)
+public_html/connections/conexion_remota.php

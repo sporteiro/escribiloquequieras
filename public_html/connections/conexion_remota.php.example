@@ -1,0 +1,6 @@
+<?php
+// Copiar a conexion_remota.php (está en .gitignore) con las credenciales de producción.
+$host = 'localhost';
+$user = 'xxx';
+$pass = 'xxx';
+$db   = 'xxx';

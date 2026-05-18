@@ -1,16 +1,16 @@
 <?php 
 header("Content-type: text/xml");
 echo '<?xml version="1.0" encoding="iso-8859-1"?>';
-require_once('Connections/tema.php'); ?>
+require_once(__DIR__ . '/connections/conexion.php'); ?>
 <?php 
 $fecha=getdate();
 $dia=$fecha['year']."-".$fecha['mon']."-".$fecha['mday'];
 
 
 
-mysql_select_db($database_tema, $tema);
+mysql_select_db($database_conexion, $conexion);
 $query_Recordlomasvisto = "SELECT * FROM Post WHERE CodPost > (SELECT MAX( CodPost ) -20 FROM Post) ORDER BY visitas DESC";
-$Recordlomasvisto = mysql_query($query_Recordlomasvisto, $tema) or die(mysql_error());
+$Recordlomasvisto = mysql_query($query_Recordlomasvisto, $conexion) or die(mysql_error());
 $row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto);
 ?>
 <rss version="2.0">

@@ -1,7 +1,7 @@
 <?php 
 header("Content-type: text/xml");
 echo '<?xml version="1.0" encoding="iso-8859-1"?>';
-require_once(__DIR__ . '/connections/conexion.php'); ?>
+require_once(__DIR__ . '/../connections/conexion.php'); ?>
 <?php 
 $fecha=getdate();
 $dia=$fecha['year']."-".$fecha['mon']."-".$fecha['mday'];

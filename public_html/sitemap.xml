@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
 	<url><loc>http://www.escribiloquequieras.com.ar</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/contacto.php</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/index.php</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/index.php?pageNum_todo=0totalRows_todo=104</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/index.php?pageNum_todo=10totalRows_todo=104</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/index.php?pageNum_todo=1totalRows_todo=104</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Cria de perezoso rascandose jajaja</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=El perro mas grande del mundo</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Genios sin Nobel</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Leo Masliah - Psicoanalista</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Los Dogones....</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Pescado con dientes humanos</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Tormenta solar con mensaje oculto</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Un poco de historia 2</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=Video para la seleccion uruguaya</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/temas.php?escribieron=otros hijos nuestros</loc></url>
-	<url><loc>http://www.escribiloquequieras.com.ar/terminos.php</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/contacto.php</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/index.php</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/index.php?pageNum_todo=0totalRows_todo=104</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/index.php?pageNum_todo=10totalRows_todo=104</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/index.php?pageNum_todo=1totalRows_todo=104</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Cria de perezoso rascandose jajaja</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=El perro mas grande del mundo</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Genios sin Nobel</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Leo Masliah - Psicoanalista</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Los Dogones....</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Pescado con dientes humanos</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Tormenta solar con mensaje oculto</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Un poco de historia 2</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=Video para la seleccion uruguaya</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/php/temas.php?escribieron=otros hijos nuestros</loc></url>
+	<url><loc>http://www.escribiloquequieras.com.ar/html/terminos.html</loc></url>
 </urlset>

@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# PHP en /php/ — URLs antiguas en la raíz
+RewriteRule ^(index|temas|temasv|busca|contacto|mandalo|indextexto|indeximagenes|indexvideos|rss)\.php$ php/$1.php [L,QSA]
+
+# HTML estático
+RewriteRule ^terminos\.php$ html/terminos.html [L,R=301]
+RewriteRule ^mensajenviado\.php$ html/mensajenviado.html [L,R=301]
+RewriteRule ^404\.html$ html/404.html [L]
+RewriteRule ^malcaptcha\.html$ html/malcaptcha.html [L]

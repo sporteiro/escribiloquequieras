@@ -1,4 +1,4 @@
-<?php require_once(__DIR__ . '/connections/conexion.php');
+<?php require_once(__DIR__ . '/../connections/conexion.php');
 
 	if (!function_exists("GetSQLValueString")) {
 			function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 	{
@@ -28,22 +28,15 @@
 		}
 }
 
-require_once('recaptchalib.php');
-$privatekey = "6LcHegkAAAAAAKZsDfVJlKaiKHy8WnJMk1SXfhzz ";
-$resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
-
-				if (!$resp->is_valid) {
-    				  $error_captcha = $resp->error; }
-				else	{
-					$editFormAction = $_SERVER['PHP_SELF'];
-				if (isset($_SERVER['QUERY_STRING']))	 {
-  					$editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
-				}
+require_once(__DIR__ . '/recaptcha.php');
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "fcomentario")) {
+  recaptcha_require_valid();
+  $editFormAction = $_SERVER['PHP_SELF'];
+  if (isset($_SERVER['QUERY_STRING'])) {
+    $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+  }
+
  		 $insertSQL = sprintf("INSERT INTO Comentarios (nombre,comentario, ip, hora, CodPost) VALUES (%s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['tunombre'], "text"),
                        GetSQLValueString($_POST['comentario'], "text"),
@@ -61,7 +54,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "fcomentario")) {
     $insertGoTo .= $_SERVER['QUERY_STRING'];
   }
   header(sprintf("Location: %s", $insertGoTo));
-}
 }
 			$colname_todo = "-1";
 			if (isset($_GET['escribieron'])) {
@@ -126,18 +118,12 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
 <meta name="keywords" content="<?php echo $row_todo['titulo']; ?>" />
 <meta name="description" content="escribi lo que quieras" />
 <title><?php echo $row_todo['titulo']; ?></title>
-<link href="estilo.css" rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" href="favicon.ico"/>
-<link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<link href="SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script src="SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
-<script type="text/javascript">
-var RecaptchaOptions = {
-   theme : 'custom',
-   tabindex : 3
-};
-</script>
+<link href="../style/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="../img/favicon.ico"/>
+<link href="../style/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<script src="../javascript/SpryValidationTextField.js" type="text/javascript"></script>
+<link href="../style/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
+<script src="../javascript/SpryValidationTextarea.js" type="text/javascript"></script>
 </head>
 <body onload="document.formvisitas.submit();"> 
 	<?php
@@ -163,7 +149,7 @@ var RecaptchaOptions = {
 	<div id="amclaje"><a name="principio">.</a>
 	</div>
 	<div id="laquetiene">
-		<div id="logo"><a href="index.php" target="_self"><img src="escribi.png" alt="escribi lo que quieras" width="300px" height="94px" class="titulares" /></a>
+		<div id="logo"><a href="index.php" target="_self"><img src="../img/escribi.png" alt="escribi lo que quieras" width="300px" height="94px" class="titulares" /></a>
   		</div>
 	</div>
 
@@ -226,14 +212,8 @@ var RecaptchaOptions = {
           <input name="otrocampo" type="hidden" id="otrocampo" value="<?php echo getIP(); ?>" />
         </p>
         <div><span class="titulares">Escribi estas palabras</span><br />
-      <div  class="imputis" id="recaptcha_image" style="width:300px; height:57px; margin: 0 auto;"></div>
-        <p class="letritas"><a href="javascript:Recaptcha.reload()">Cambiar palabras</a></p>
-        <span id="sprytextfield2"><label>
-      <input  class="imputis" tabindex="3" id="recaptcha_response_field" name="recaptcha_response_field" /></label></span>
-      <? require_once('recaptchalib.php');
-$publickey = "6LcHegkAAAAAACql12qZ0tl_V2tQywVPiPwWgKXT";
-echo recaptcha_get_html($publickey);
-?>
+      <div class="imputis" style="margin: 0 auto;">
+      <?php recaptcha_render_widget(); ?>
       </div>
         <p>
           <label>
@@ -244,14 +224,14 @@ echo recaptcha_get_html($publickey);
             <input type="hidden" name="MM_insert" value="fcomentario" />
         
           </p>
-          <p><a href="#principio"><img src="flecha3.png" title="subir al principio de la pagina" width="20px" height="40px" alt="ir al principio" class="titulares"/></a></p>
+          <p><a href="#principio"><img src="../img/flecha3.png" title="subir al principio de la pagina" width="20px" height="40px" alt="ir al principio" class="titulares"/></a></p>
     </div>
           </div>
              <div class="postitparatemas">
            <p class="titulares">Pueden interesarte estos posts</p>
 <?php do { ?>
   <span class="letrasnormales">
-    <a href="temas.php?escribieron=<?php echo $row_Recordlomasvisto['titulo']; ?>"><?php echo $row_Recordlomasvisto['titulo']; ?></a></span> <span class="masletras"><img src="<?php echo $row_Recordlomasvisto['categoria']; ?>.gif" width="25px" height="25px" alt="<?php echo $row_Recordlomasvisto['categoria']; ?>" title="Este post contiene <?php echo $row_Recordlomasvisto['categoria']; ?>"/></span>
+    <a href="temas.php?escribieron=<?php echo $row_Recordlomasvisto['titulo']; ?>"><?php echo $row_Recordlomasvisto['titulo']; ?></a></span> <span class="masletras"><img src="../img/<?php echo $row_Recordlomasvisto['categoria']; ?>.gif" width="25px" height="25px" alt="<?php echo $row_Recordlomasvisto['categoria']; ?>" title="Este post contiene <?php echo $row_Recordlomasvisto['categoria']; ?>"/></span>
   <br />
   <?php } while ($row_Recordlomasvisto = mysql_fetch_assoc($Recordlomasvisto)); ?><br />
   </div><br /></div>
@@ -268,7 +248,7 @@ DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.
 		 <a href="http://jigsaw.w3.org/css-validator/check/referer">
     		<img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" class="titulares" style="border:0;width:57px;height:20px" />
 		</a>
-		<a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a>
+		<a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="../img/sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a>
 	</p>
 	<br />
 </div>
@@ -285,7 +265,6 @@ DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.
 </script>
 <script type="text/javascript">
 	var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {minChars:3, maxChars:30});
-	var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2");
 	var sprytextarea1 = new Spry.Widget.ValidationTextarea("sprytextarea1", {counterType:"chars_remaining", counterId:"countsprytextarea1", minChars:5, maxChars:2000});
 </script>
 <?php

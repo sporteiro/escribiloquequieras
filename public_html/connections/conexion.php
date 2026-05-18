@@ -1,6 +1,28 @@
 <?php
-$server = $_SERVER['SERVER_NAME'] ?? '';
-$es_local = ($server === 'localhost' || $server === '127.0.0.1' || $server === '');
+$raw = $_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? '';
+$es_local = false;
+if (getenv('ESCRIBILO_LOCAL') === '1' || strtolower((string) getenv('ESCRIBILO_LOCAL')) === 'true') {
+    $es_local = true;
+} elseif (strpos($raw, '[::1]') !== false) {
+    $es_local = true;
+} else {
+    $host = strtolower(trim(explode(':', $raw, 2)[0]));
+    if ($host === '' || $host === 'localhost' || $host === '127.0.0.1') {
+        $es_local = true;
+    } else {
+        foreach (['.localhost', '.local', '.test', '.lan', '.dev'] as $suf) {
+            if (strlen($host) > strlen($suf) && substr($host, -strlen($suf)) === $suf) {
+                $es_local = true;
+                break;
+            }
+        }
+        if (!$es_local && filter_var($host, FILTER_VALIDATE_IP)) {
+            if (!filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                $es_local = true;
+            }
+        }
+    }
+}
 
 // $es_local = false;
 
@@ -24,7 +46,7 @@ try {
     if ($es_local) {
         die('Error DB local: ' . $e->getMessage());
     }
-    header('Location: 404.html');
+    header('Location: ../html/404.html');
     exit;
 }
 

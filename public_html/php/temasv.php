@@ -125,6 +125,7 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
 <meta name="description" content="escribi lo que quieras" />
 <title><?php echo $row_todo['titulo']; ?></title>
 <link href="../style/estilo.css" rel="stylesheet" type="text/css" />
+<link href="../style/estilo_2026.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="../img/favicon.ico"/>
 <link href="../style/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../javascript/SpryValidationTextField.js" type="text/javascript"></script>
@@ -227,7 +228,7 @@ $totalPages_Recordlomasvisto = ceil($totalRows_Recordlomasvisto/$maxRows_Recordl
       </div>
         <p>
           <label>
-          <input name="listo" type="submit" class="botones" id="listo" tabindex="4" value="Public tu comentario" />
+          <input name="listo" type="submit" class="botones" id="listo" tabindex="4" value="PublicÃ¡ tu comentario" />
           </label>
         </p>
           <p>
@@ -253,19 +254,19 @@ do { ?>
   <br />
 <br />
 <div style="clear:both;"></div>
+<!-- INICIO ULTIMO -->
+
 <div id="ultimo">
+<div class="letrasnormales">
+        	<a href="../html/terminos.html">TÃ©rminos y condiciones generales de uso</a> | <a href="/temas.php?escribieron=%BFque%20es%20Escribiloquequieras?">&iquest;Qu&eacute; es es escribiloquequieras? </a> | <a href="contacto.php">Contactar con el equipo de desarrollo</a>
+		</div>
+        <br />
 TODOS LOS DERECHOS RESERVADOS. Escribiloquequieras no es responsable del contenido.<br />
-DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com.ar" target="_blank">SEBASTIAN PORTEIRO</a>.
-	<br />
-	Sitio alojado en <a href="http://www.000webhost.com/147501.html" target="_blank">000webhost</a>
-	 <p>
-		 <a href="http://jigsaw.w3.org/css-validator/check/referer">
-    		<img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Vlido!" class="titulares" style="border:0;width:57px;height:20px" />
-		</a>
-		<a href="http://www.sebastianporteiro.com.ar" target="_blank"><img src="../img/sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a>
-	</p>
-	<br />
+DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="https://www.sebastianporteiro.com" target="_blank">SEBASTIAN PORTEIRO</a>.<br />
+<a href="https://www.sebastianporteiro.com/img/logo.png" target="_blank"><img src="https://www.sebastianporteiro.com/img/logo.png" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
+<br />
 </div>
+<!-- FIN ULTIMO -->
 <script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

@@ -146,6 +146,7 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
 <title>Escribi lo que quieras</title>
 
 <link href="../style/estilo.css" rel="stylesheet" type="text/css" />
+<link href="../style/estilo_2026.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="../img/favicon.ico"/>
 
 <link href="../style/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
@@ -190,7 +191,7 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
 			<form id="busqueda" name="busqueda" method="post" action="busca.php">
        			<span id="sprytextfield4"> 
       			<label>
-      				<input name="buscar" type="text" class="imputis" id="buscar" tabindex="1" value="B�squeda por titulo" onblur="if(this.value=='') this.value='B�squeda por titulo';" onfocus="if(this.value=='B�squeda por titulo') this.value='';"  size="30" maxlength="30" />
+      				<input name="buscar" type="text" class="imputis" id="buscar" tabindex="1" value="Búsqueda por titulo" onblur="if(this.value=='') this.value='Búsqueda por titulo';" onfocus="if(this.value=='Búsqueda por titulo') this.value='';"  size="30" maxlength="30" />
      			</label>
 			</span>
             		<label>
@@ -245,7 +246,7 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
 <!--
   <div class="adentropostit">
   <span class="titulares">Elegir contenido:</span><hr />
-  <p class="titulares"><a href="indexvideos.php"> <img src="../img/videos.png" width="25px" height="25px" alt="Videos" title="Ver posts que contienen videos"/>Videos</a>  <a href="indeximagenes.php"> <img src="../img/imagen.png" width="25px" height="25px" alt="Imagenes" title="Ver posts que contienen imagenes"/> Im�genes</a> <a href="indextexto.php"> <img src="../img/texto.png" width="25px" height="25px" alt="Texto" title="Ver posts que contienen texto"/> S�lo texto</a></p>
+  <p class="titulares"><a href="indexvideos.php"> <img src="../img/videos.png" width="25px" height="25px" alt="Videos" title="Ver posts que contienen videos"/>Videos</a>  <a href="indeximagenes.php"> <img src="../img/imagen.png" width="25px" height="25px" alt="Imagenes" title="Ver posts que contienen imagenes"/> Imagenes</a> <a href="indextexto.php"> <img src="../img/texto.png" width="25px" height="25px" alt="Texto" title="Ver posts que contienen texto"/> Solo texto</a></p>
   </div>
 -->
   </div>
@@ -285,7 +286,7 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
 <!-- FIN Imputs extras -->
 	<!--
 		<span class="letritas">(El contenido de tu post. Podes enlazar imagenes o videos)<br /><br />
-			<a href="javascript:especiales('url')"><img src="../img/imagen.png" width="25" height="25" alt="Insertar imagen" title="Insertar imagen" />Enlazar im�genes
+			<a href="javascript:especiales('url')"><img src="../img/imagen.png" width="25" height="25" alt="Insertar imagen" title="Insertar imagen" />Enlazar imagenes
 		            </a> 
  			<a href="javascript:especiales('enlaces')"><img src="../img/enlaces.png" width="25" height="25" alt="insertar enlaces" title="Insertar enlace" />Crear un enlace
 		            </a>
@@ -312,7 +313,7 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
       </div>
 </div>
 	<br />
-        <input name="listo" type="submit" class="botones" id="listo" tabindex="8" value="Public� tu post" />
+        <input name="listo" type="submit" class="botones" id="listo" tabindex="8" value="Publicá tu post" />
         </label>
       </p>
     <input type="hidden" name="MM_insert" value="fpostear" />
@@ -397,20 +398,12 @@ $row_comentarios = mysql_fetch_assoc($comentarios);
 
 <div id="ultimo">
 <div class="letrasnormales">
-        	<a href="../html/terminos.html">T�rminos y condiciones generales de uso</a> | <a href="http://www.escribiloquequieras.com/temas.php?escribieron=%BFque%20es%20Escribiloquequieras?">&iquest;Qu&eacute; es es escribiloquequieras? </a> | <a href="contacto.php">Contactar con el equipo de desarrollo</a>
+        	<a href="../html/terminos.html">Términos y condiciones generales de uso</a> | <a href="/temas.php?escribieron=%BFque%20es%20Escribiloquequieras?">&iquest;Qu&eacute; es es escribiloquequieras? </a> | <a href="contacto.php">Contactar con el equipo de desarrollo</a>
 		</div>
         <br />
 TODOS LOS DERECHOS RESERVADOS. Escribiloquequieras no es responsable del contenido.<br />
-DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="http://www.sebastianporteiro.com" target="_blank">SEBASTIAN PORTEIRO</a>.<br />
-Sitio alojado en <a href="http://www.000webhost.com/147501.html" target="_blank">000webhost</a>
- <p>
-  <a href="http://validator.w3.org/check?uri=referer">
-    <img
-        src="http://www.w3.org/Icons/valid-xhtml10-blue"
-        alt="Valid XHTML 1.0 Transitional" class="titulares" style="border:0;width:57px;height:20px" />
-        
-</a>
-  <a href="http://www.sebastianporteiro.com" target="_blank"><img src="../img/sebastianporteiro.gif" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
+DISE&Ntilde;O Y DESARROLLO DEL SITIO: <a href="https://www.sebastianporteiro.com" target="_blank">SEBASTIAN PORTEIRO</a>.<br />
+<a href="https://www.sebastianporteiro.com/img/logo.png" target="_blank"><img src="https://www.sebastianporteiro.com/img/logo.png" alt="Sebastian Porteiro" width="25px" height="25px" class="titulares" /></a></p>
 <br />
 </div>
 <!-- FIN ULTIMO -->
